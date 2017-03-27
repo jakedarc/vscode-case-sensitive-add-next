@@ -7,6 +7,11 @@
     "engines": {
         "vscode": "^1.10.0"
     },
+    "homepage": "https://github.com/JakeKantzer/vscode-case-sensitive-add-next/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/JakeKantzer/vscode-case-sensitive-add-next"
+    },
     "categories": [
         "Other"
     ],
