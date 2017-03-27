@@ -1,0 +1,42 @@
+{
+    "name": "case-sensitive-add-next",
+    "displayName": "Case-Sensitive Add Next Occurrence",
+    "description": "Replaces Add Next Occurrence with similar command that is always case-sensitive.",
+    "version": "0.0.1",
+    "publisher": "jake",
+    "engines": {
+        "vscode": "^1.10.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.caseSensitiveAddNext"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.caseSensitiveAddNext",
+            "title": "Add Next Occurrence (Case-Sensitive)"
+        }],
+        "keybindings": [{
+            "command": "extension.caseSensitiveAddNext",
+            "key":"win+d",
+            "mac":"cmd+d",
+            "when":"editorTextFocus"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    }
+}
