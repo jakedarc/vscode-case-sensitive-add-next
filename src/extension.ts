@@ -30,8 +30,8 @@ export function activate(context: vscode.ExtensionContext) {
         let fullText = editor.document.getText();
 
         let match;
-        let selections = editor.selections; // editor.selections is immutable, apparently
-        
+        let selections = editor.selections.slice(0); // editor.selections is immutable, apparently
+
         while (match = regex.exec(fullText)) {
             let startPos = editor.document.positionAt(match.index);
             let endPos = editor.document.positionAt(match.index + match[0].length);
@@ -45,8 +45,10 @@ export function activate(context: vscode.ExtensionContext) {
             break;
         }
 
-        if (selections.length > editor.selections.length) selections.reverse();
-        editor.selections = selections;
+        if (selections.length > editor.selections.length) {
+            selections.reverse();
+            editor.selections = selections;
+        }
 
         return;
     });

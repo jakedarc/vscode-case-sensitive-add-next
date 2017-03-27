@@ -15,16 +15,20 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.caseSensitiveAddNext",
-            "title": "Add Next Occurrence (Case-Sensitive)"
-        }],
-        "keybindings": [{
-            "command": "extension.caseSensitiveAddNext",
-            "key":"win+d",
-            "mac":"cmd+d",
-            "when":"editorTextFocus"
-        }]
+        "commands": [
+            {
+                "command": "extension.caseSensitiveAddNext",
+                "title": "Add Next Occurrence (Case-Sensitive)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.caseSensitiveAddNext",
+                "key": "win+d",
+                "mac": "cmd+d",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",

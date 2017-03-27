@@ -20,10 +20,6 @@ Nothing aside from its keybinding.
 
 ## Release Notes
 
-### 0.0.2
-
-Fixed cursor cycling when attempting to select again after last instance of selected text is reached.
-
 ### 0.0.1
 
 Initial release!
