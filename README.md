@@ -16,9 +16,13 @@ Nothing aside from its keybinding.
 
 ## Known Issues
 
-Nothing yet!
+- The extension currently only selects instances after the last selected instance.
 
 ## Release Notes
+
+### 0.0.2
+
+Fixed cursor cycling when attempting to select again after last instance of selected text is reached.
 
 ### 0.0.1
 

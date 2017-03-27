@@ -41,11 +41,11 @@ export function activate(context: vscode.ExtensionContext) {
             }
 
             selections.push(new vscode.Selection(startPos, endPos)); // We just want to add one selection per command
-            
+
             break;
         }
 
-        selections.reverse();
+        if (selections.length > editor.selections.length) selections.reverse();
         editor.selections = selections;
 
         return;
