@@ -3,7 +3,7 @@
     "displayName": "Case-Sensitive Add Next Occurrence",
     "description": "Replaces Add Next Occurrence with similar command that is always case-sensitive.",
     "version": "0.0.1",
-    "publisher": "jake",
+    "publisher": "jacobkantzer",
     "engines": {
         "vscode": "^1.10.0"
     },
