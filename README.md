@@ -1,4 +1,4 @@
-# select-next-better README
+# vscode-case-sensitive-add-next README
 
 This extension replaces the keybinding for "Add Next Occurrence" with a similar command that is always case-sensitive. It's pretty quick and dirty; I just needed to write something to do this to keep myself sane working with Code.
 
