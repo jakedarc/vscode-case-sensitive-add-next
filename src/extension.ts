@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         let match;
         let selections = editor.selections.slice(0);
-        let selectionsInOrder = editor.selections.sort(sortSelections);
+        let selectionsInOrder = editor.selections.slice(0).sort(sortSelections);
         let selectionBeforeCurrent;
         let selectionAfterCurrent;
 
@@ -48,14 +48,12 @@ export function activate(context: vscode.ExtensionContext) {
             selections.push(selectionAfterCurrent);
         } else if (selectionBeforeCurrent) {
             selections.push(selectionBeforeCurrent);
+        } else {
+            return;
         }
 
-        if (selections.length > editor.selections.length) {
-            selections.reverse();
-            editor.selections = selections;
-        }
-
-        return;
+        selections.reverse();
+        editor.selections = selections;
     });
 
     context.subscriptions.push(disposable);
