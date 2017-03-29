@@ -20,6 +20,11 @@ Nothing aside from its keybinding.
 
 ## Release Notes
 
+### 0.0.3
+
+- Fix for behavior when multiple selections exist that have different content.
+- Changed default keybinding so it doesn't clobber existing Add Next Occurrence command.
+
 ### 0.0.2
 
 - Fixed extension only selecting instances after the last selected instance.

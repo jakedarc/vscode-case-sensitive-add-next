@@ -19,7 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         let match;
         let selections = editor.selections.slice(0);
-        let selectionsInOrder = editor.selections.slice(0).sort(sortSelections);
+
+        let sortedMatchingSelections = selections.filter(selection => editor.document.getText(selection) === selectedText).sort(sortSelections);
+
         let selectionBeforeCurrent;
         let selectionAfterCurrent;
 
@@ -35,7 +37,7 @@ export function activate(context: vscode.ExtensionContext) {
 
             // We'll record the first match that pops up before the current selections
             // and use it if no unselected matches exist after the current selections
-            if (startPos.isBefore(selectionsInOrder[0].start)) {
+            if (startPos.isBefore(sortedMatchingSelections[0].start)) {
                 if (!selectionBeforeCurrent) selectionBeforeCurrent = new vscode.Selection(startPos, endPos);
                 continue;
             }
@@ -45,14 +47,13 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (selectionAfterCurrent) {
-            selections.push(selectionAfterCurrent);
+            selections.unshift(selectionAfterCurrent);
         } else if (selectionBeforeCurrent) {
-            selections.push(selectionBeforeCurrent);
+            selections.unshift(selectionBeforeCurrent);
         } else {
             return;
         }
 
-        selections.reverse();
         editor.selections = selections;
     });
 

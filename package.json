@@ -2,7 +2,7 @@
     "name": "case-sensitive-add-next",
     "displayName": "Case-Sensitive Add Next Occurrence",
     "description": "Replaces Add Next Occurrence with similar command that is always case-sensitive.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "jacobkantzer",
     "engines": {
         "vscode": "^1.10.0"
@@ -29,8 +29,7 @@
         "keybindings": [
             {
                 "command": "extension.caseSensitiveAddNext",
-                "key": "win+d",
-                "mac": "cmd+d",
+                "key": "ctrl+shift+d",
                 "when": "editorTextFocus"
             }
         ]
