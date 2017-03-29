@@ -20,6 +20,11 @@ Nothing aside from its keybinding.
 
 ## Release Notes
 
+### 0.0.4
+
+- Using command when selections don't have matching content now does nothing (like existing Add Next Occurrence command).
+- New selections now get focus if they're outside of the current view.
+
 ### 0.0.3
 
 - Fix for behavior when multiple selections exist that have different content.

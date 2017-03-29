@@ -18,9 +18,12 @@ export function activate(context: vscode.ExtensionContext) {
         let fullText = editor.document.getText();
 
         let match;
-        let selections = editor.selections.slice(0);
+        let selections = editor.selections.filter(selection => editor.document.getText(selection) === selectedText);
 
-        let sortedMatchingSelections = selections.filter(selection => editor.document.getText(selection) === selectedText).sort(sortSelections);
+        // If the current selections don't have matching content, do nothing (like existing Add Next Occurrence command)
+        if (selections.length !== editor.selections.length) return;
+
+        let sortedSelections = selections.sort(sortSelections);
 
         let selectionBeforeCurrent;
         let selectionAfterCurrent;
@@ -37,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
 
             // We'll record the first match that pops up before the current selections
             // and use it if no unselected matches exist after the current selections
-            if (startPos.isBefore(sortedMatchingSelections[0].start)) {
+            if (startPos.isBefore(sortedSelections[0].start)) {
                 if (!selectionBeforeCurrent) selectionBeforeCurrent = new vscode.Selection(startPos, endPos);
                 continue;
             }
@@ -55,6 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         editor.selections = selections;
+        editor.revealRange(new vscode.Range(selections[0].start, selections[0].end), vscode.TextEditorRevealType.InCenterIfOutsideViewport);
     });
 
     context.subscriptions.push(disposable);
