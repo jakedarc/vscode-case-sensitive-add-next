@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
         // If the current selections don't have matching content, do nothing (like existing Add Next Occurrence command)
         if (selections.length !== editor.selections.length) return;
 
-        let sortedSelections = selections.sort(sortSelections);
+        let sortedSelections = selections.slice(0).sort(sortSelections);
 
         let selectionBeforeCurrent;
         let selectionAfterCurrent;
@@ -50,15 +50,17 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         if (selectionAfterCurrent) {
-            selections.unshift(selectionAfterCurrent);
+            selections.push(selectionAfterCurrent);
         } else if (selectionBeforeCurrent) {
-            selections.unshift(selectionBeforeCurrent);
+            selections.push(selectionBeforeCurrent);
         } else {
+            // Reveal primary selection if no more are found
+            editor.revealRange(new vscode.Range(selections[0].start, selections[0].end), vscode.TextEditorRevealType.InCenterIfOutsideViewport);            
             return;
         }
 
         editor.selections = selections;
-        editor.revealRange(new vscode.Range(selections[0].start, selections[0].end), vscode.TextEditorRevealType.InCenterIfOutsideViewport);
+        editor.revealRange(new vscode.Range(selections[selections.length - 1].start, selections[selections.length - 1].end), vscode.TextEditorRevealType.InCenterIfOutsideViewport);
     });
 
     context.subscriptions.push(disposable);

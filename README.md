@@ -20,6 +20,10 @@ Nothing aside from its keybinding.
 
 ## Release Notes
 
+### 0.0.5
+
+- Focuses primary selection when no others are found (again matching existing command).
+
 ### 0.0.4
 
 - Using command when selections don't have matching content now does nothing (like existing Add Next Occurrence command).
