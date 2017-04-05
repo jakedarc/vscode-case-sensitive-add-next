@@ -30,7 +30,7 @@
             {
                 "command": "extension.caseSensitiveAddNext",
                 "key": "ctrl+shift+d",
-                "when": "editorTextFocus"
+                "when": "editorFocus"
             }
         ]
     },
