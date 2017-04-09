@@ -16,9 +16,13 @@ Nothing aside from its keybinding.
 
 ## Known Issues
 
-- None known, but I'm sure there's plenty that are unknown.
+- Default Windows key command doesn't work - I don't use Windows much but I'll fix this when I have a chance.
 
 ## Release Notes
+
+### 0.0.6
+
+- Fixed issue with special characters affecting selections
 
 ### 0.0.5
 
