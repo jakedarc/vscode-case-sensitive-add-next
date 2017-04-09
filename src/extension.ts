@@ -1,5 +1,6 @@
 'use strict';
 import * as vscode from 'vscode';
+import * as escapeRegExp from 'lodash.escaperegexp';
 
 export function activate(context: vscode.ExtensionContext) {
     let disposable = vscode.commands.registerCommand('extension.caseSensitiveAddNext', () => {
@@ -13,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
         let selectedText = editor.document.getText(selection);
         if (!selectedText) return;
 
-        let regex = new RegExp(selectedText, 'g');
+        let regex = new RegExp(escapeRegExp(selectedText), 'g');
         
         let fullText = editor.document.getText();
 
