@@ -1,6 +1,6 @@
 # vscode-case-sensitive-add-next README
 
-This extension replaces the keybinding for "Add Next Occurrence" with a similar command that is always case-sensitive. It's pretty quick and dirty; I just needed to write something to do this to keep myself sane working with Code.
+This extension adds a keybinding for "Case-Sensitive Add Next Occurrence" (either Ctrl+Shift+D or Cmd+Shift+D by default) that acts like the default Ctrl/Cmd+D but is always case-sensitive. It's pretty quick and dirty; I just needed to write something to do this to keep myself sane working with Code. I personally remapped it to Cmd+D and don't use the default functionality at all but I didn't want to presume that everyone installing the extension would want to do that.
 
 ## Features
 
@@ -16,7 +16,7 @@ Nothing aside from its keybinding.
 
 ## Known Issues
 
-- Default Windows key command doesn't work - I don't use Windows much but I'll fix this when I have a chance.
+- None at present.
 
 ## Release Notes
 
